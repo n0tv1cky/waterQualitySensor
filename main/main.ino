@@ -18,6 +18,7 @@ String messageBuffer = "";
 String message = "";
 
 void loop() {
+  float phValue = 4.5;
   float tdsSensorValue = analogRead(TDSPin);
   float Voltage = tdsSensorValue * 5 / 1024.0;
   float tdsValue = (133.42 * Voltage * Voltage * Voltage - 255.86 * Voltage * Voltage + 857.39 * Voltage);
@@ -29,13 +30,18 @@ void loop() {
   float turbValue = turbSensorValue * (5.0 / 1024.0);
   Serial.print("Turbidity Value = ");
   Serial.print(turbValue);
-  Serial.print(" NTU");
+  Serial.println(" NTU");
+  Serial.print("pH = ");
+  Serial.println(phValue);
 
   //print on app
   BTSerial.print(tdsValue);
   BTSerial.print(",");
   BTSerial.print(turbValue/2);
+  BTSerial.print(",");
+  BTSerial.print(phValue);
   BTSerial.print(";");
+
 
   //print TDS Value
   // message.concat("        TDS = ");
