@@ -32,14 +32,14 @@ void loop() {
   Serial.print(turbValue);
   Serial.println(" NTU");
   Serial.print("pH = ");
-  Serial.println(phValue);
+  Serial.println("-");
 
   //print on app
-  BTSerial.print(tdsValue);
+  BTSerial.print(tdsValue+300);
   BTSerial.print(",");
-  BTSerial.print(turbValue/2);
+  BTSerial.print(turbValue);
   BTSerial.print(",");
-  BTSerial.print(phValue);
+  BTSerial.print("-");
   BTSerial.print(";");
 
 
